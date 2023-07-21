@@ -1,5 +1,4 @@
 ﻿
-using FrontWorld.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +26,7 @@ namespace FrontWorld
             InitializeComponent();
             btn.Click += (semder, e) =>
             {
-                WorldNetwork wm = new WorldNetwork();
+                //WorldNetwork wm = new WorldNetwork();
             };
         }
     }

@@ -11,4 +11,10 @@
     <PackageReference Include="System.Reactive" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="View\" />
+  </ItemGroup>
+
 </Project>
