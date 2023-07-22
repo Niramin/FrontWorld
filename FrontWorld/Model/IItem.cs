@@ -10,11 +10,11 @@ namespace FrontWorld.Model
     {
         public string name { get; set; }
 
-        public int obtainingCost { get; set; }
+        public int obtainingPrice { get; set; }
 
-        public int sellingCost { get; set;}
+        public int sellingPrice { get; set;}
 
-        public int quantitiy { get; set; }
+        public int quantity { get; set; }
 
         public INode owner { get; set; }
 

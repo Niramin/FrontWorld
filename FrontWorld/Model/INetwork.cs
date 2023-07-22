@@ -24,8 +24,12 @@ namespace FrontWorld.Model
         public void decreasePrice(string itemname);
 
         public INode chooseRandomNode();
-
+        
+        
+        // buy if in need of something, if have excess of something sell it
         public bool conductTradeRound();
 
+        public Dictionary<string,int> reportNodesMoney();
+        public bool freshStart { get; set; }
     }
 }
