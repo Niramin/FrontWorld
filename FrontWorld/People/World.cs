@@ -116,6 +116,31 @@ namespace FrontWorld.People
             }
         }
 
+
+        // remove money from nodes as land tax
+        public void levyLandTax()
+        {
+            foreach (KeyValuePair<string, INode> node in network.nodes)
+            {
+                INode _node = node.Value;
+                if (_node.inventory.ContainsKey("land"))
+                {
+                    if (_node.inventory["land"].quantity > 7)
+                    {
+                        int landValue = _node.inventory["land"].sellingPrice * _node.inventory["land"].quantity;
+                        int taxedAmount = landValue * 20 / 100;
+
+                        _node.money -= taxedAmount;
+                        if (_node.money < 0) _node.money = 0;
+                    }
+                    
+                }
+
+            }
+
+        }
+
+
         public void conductCycle(int count, int reinit = 0)
         {
             network.freshStart=true;
@@ -130,6 +155,7 @@ namespace FrontWorld.People
                     regenerateFood();
                     regenerateHunger();
                     increaseLandPrice();
+                    levyLandTax();
                     p = 1;
                 }
 
