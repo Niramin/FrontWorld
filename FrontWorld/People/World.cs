@@ -125,13 +125,22 @@ namespace FrontWorld.People
                 INode _node = node.Value;
                 if (_node.inventory.ContainsKey("land"))
                 {
-                    if (_node.inventory["land"].quantity > 7)
+                    if (_node.inventory["land"].quantity > 10)
                     {
                         int landValue = _node.inventory["land"].sellingPrice * _node.inventory["land"].quantity;
-                        int taxedAmount = landValue * 20 / 100;
+                        int taxedAmount = landValue * 1 / 100;
 
                         _node.money -= taxedAmount;
-                        if (_node.money < 0) _node.money = 0;
+                        if (_node.money<0)
+                        {
+                            // land has become a liability, reduce its price
+                            _node.inventory["land"].sellingPrice -= 50;
+                            if (_node.inventory["land"].sellingPrice < 10)
+                            {
+                                _node.inventory["land"].sellingPrice = 10;
+                            }
+
+                        }
                     }
                     
                 }
