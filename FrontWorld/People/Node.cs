@@ -50,9 +50,12 @@ namespace FrontWorld.People
                 }
                 min_money += 50;
                 INode sellingNode = network.chooseRandomNode();
-                while (sellingNode.name == name)
+                //trade bloc, buy only from poor node if itself a poor node
+                while (sellingNode.name == name && (sellingNode.name[0]!='P' && name[0]=='P'))
                 {
+                    
                     sellingNode = network.chooseRandomNode();
+                  
                 }
 
                 int surplus_money = money - min_money;
