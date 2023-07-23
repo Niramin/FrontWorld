@@ -21,6 +21,7 @@
                     <TextBlock Text="Recharge:" FontSize="24"></TextBlock>
                     <TextBox x:Name="RechargeCount" Width="150"/>
                 </StackPanel>
+                <Button Content="Set Out dir" x:Name="outdirbutton"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="1">

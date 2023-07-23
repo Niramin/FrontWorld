@@ -9,11 +9,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace FrontWorld
 {
@@ -34,6 +36,25 @@ namespace FrontWorld
                 int cycle = Int32.Parse(CyclesCount.Text);
                 int recharge = Int32.Parse(RechargeCount.Text);
                 await Task.Run(() => { world.conductCycle(cycle,recharge); });
+
+            };
+
+            outdirbutton.Click += (sender, e) =>
+            {
+
+
+                using (var dialog = new FolderBrowserDialog())
+{
+                    //setup here
+
+                    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)  //check for OK...they might press cancel, so don't do anything if they did.
+                    {
+                        var path = dialog.SelectedPath;
+                        Properties.Settings.Default.outdir = path;
+                        Properties.Settings.Default.Save();
+                        //do something with path
+                    }
+                }
 
             };
         }

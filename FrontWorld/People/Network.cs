@@ -28,8 +28,8 @@ namespace FrontWorld.People
             _timeCount = 0;
             _files = new Dictionary<string,string>();
             _initialized = new Dictionary<string,bool>();
-            _files.Add("money", "C:\\Users\\Shashwat Ratna\\Desktop\\Learn\\InfoDump\\NodeMoney.csv");
-            _files.Add("land", "C:\\Users\\Shashwat Ratna\\Desktop\\Learn\\InfoDump\\NodeLand.csv");
+            _files.Add("money", Properties.Settings.Default.outdir+ "\\NodeMoney.csv");
+            _files.Add("land", Properties.Settings.Default.outdir + "\\NodeLand.csv");
 
             _initialized["money"] = false;
             _initialized["land"] = false;
@@ -91,6 +91,7 @@ namespace FrontWorld.People
         private void InitializeFile(string file) 
         {
             string fileName = _files[file];
+
             File.WriteAllText(fileName, string.Empty);
             using (StreamWriter writer = new StreamWriter(fileName))
             {
