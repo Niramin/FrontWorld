@@ -51,7 +51,7 @@ namespace FrontWorld.People
                 min_money += 50;
                 INode sellingNode = network.chooseRandomNode();
                 //trade bloc, buy only from poor node if itself a poor node
-                while (sellingNode.name == name && (sellingNode.name[0]!='P' && name[0]=='P'))
+                 while (sellingNode.name == name || (sellingNode.name[0]!='P' && name[0]=='P'))
                 {
                     
                     sellingNode = network.chooseRandomNode();
