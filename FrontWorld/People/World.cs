@@ -116,6 +116,17 @@ namespace FrontWorld.People
             }
         }
 
+        // universal basic income: give everyone some money
+
+        public void distributeUniversalBasicIncome()
+        {
+            foreach (KeyValuePair<string, INode> node in network.nodes)
+            {
+                INode _node = node.Value;
+                _node.money += 100;
+
+            }
+        }
         public void conductCycle(int count, int reinit = 0)
         {
             network.freshStart=true;
@@ -130,6 +141,7 @@ namespace FrontWorld.People
                     regenerateFood();
                     regenerateHunger();
                     increaseLandPrice();
+                    distributeUniversalBasicIncome();
                     p = 1;
                 }
 
