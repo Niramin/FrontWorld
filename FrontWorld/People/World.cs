@@ -102,6 +102,20 @@ namespace FrontWorld.People
             }
         }
 
+        // increase value of land
+        public void increaseLandPrice()
+        {
+            foreach (KeyValuePair<string, INode> node in network.nodes)
+            {
+                INode _node = node.Value;
+                if (_node.inventory.ContainsKey("land"))
+                {
+                    _node.inventory["land"].sellingPrice += 10;
+                }
+
+            }
+        }
+
         public void conductCycle(int count, int reinit = 0)
         {
             network.freshStart=true;
@@ -115,6 +129,7 @@ namespace FrontWorld.People
                 {
                     regenerateFood();
                     regenerateHunger();
+                    increaseLandPrice();
                     p = 1;
                 }
 
